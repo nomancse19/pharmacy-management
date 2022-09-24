@@ -1,5 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import mitt from "mitt";
+import "./assets/css/example.css";
 import "ayoflex/dist/ayoflex.min.css";
-
-createApp(App).mount("#app");
+import "ayoflex/dist/ayoflex.css";
+let eventBus = mitt();
+const app = createApp(App);
+app.config.globalProperties.$eventBus = eventBus;
+app.mount("#app");

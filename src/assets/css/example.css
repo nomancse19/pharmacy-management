@@ -1,0 +1,9 @@
+.toasts {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-x: hidden;
+}

@@ -7,12 +7,33 @@
           <h2>User Login</h2>
         </div>
 
-        <form action="">
-          <span>Email</span>
-          <input type="email" placeholder="Enter Your Email" />
+        <form action="#" @submit.prevent="handleSubmit">
+          <label>Email</label><br />
+          <input
+            type="email"
+            v-model="formData.email"
+            placeholder="Enter Your Email"
+          />
 
-          <span>Password</span>
-          <input type="password" placeholder="Enter Your Password" />
+          <label class="d-block mt-3">Password</label>
+          <input
+            type="password"
+            v-model="formData.password"
+            placeholder="Enter Your Password"
+            ref="password"
+          />
+          <button type="submit" class="w-100 mt-3">Login</button>
+          <div class="d-flex mt-3 jc-between">
+            <div>
+              <label for=""
+                ><input type="checkbox" name="" id="" />
+                Remember Me
+              </label>
+            </div>
+            <div>
+              <a href="">Forget Password</a>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -20,7 +41,37 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    formData: {
+      email: "",
+      password: "",
+    },
+  }),
+  methods: {
+    handleSubmit() {
+      if (!this.formData.email) {
+        //alert("Email Can't be Empty");
+        this.$eventBus.emit("toast", {
+          Type: "Error",
+          message: "Email Can Not Be Empty",
+        });
+        return;
+      }
+      if (this.formData.password.length <= 6) {
+        // alert(
+        //"Password Must Be 6 Character Long" + this.formData.password.length
+        // );
+        this.$eventBus.emit("toast", {
+          Type: "Error",
+          message: "Password Must Be 6 Character Long",
+        });
+        this.$refs.password.focus();
+        return;
+      }
+    },
+  },
+};
 </script>
 
 <style>
@@ -53,7 +104,10 @@ export default {};
 input {
   padding: 7px 5px;
 }
-.mmmm {
-  margin-top: 10px;
+button {
+  padding: 7px 5px;
+  background-color: #290c0b;
+  color: #fff;
+  cursor: pointer;
 }
 </style>
