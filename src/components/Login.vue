@@ -68,6 +68,11 @@ export default {
         });
         this.$refs.password.focus();
         return;
+      } else {
+        this.$eventBus.emit("toast", {
+          Type: "Success",
+          message: "Your Login Validation Success",
+        });
       }
     },
   },
