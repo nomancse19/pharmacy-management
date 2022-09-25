@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS TEXT Effects</title>
+	<style>
+	*{margin:0;padding:0;box-sizing: border-box;outline: 0;}
+
+
+h1{
+    font-size:50px;
+    width:0ch;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:text 10s steps(20) infinite;
+    border-right:4px solid black;
+}
+
+@keyframes text{
+    0%{
+        width:0ch;
+    }
+    50%{
+        width:26ch;
+    }
+}
+	
+	</style>
+</head>
+<body>
+    <h1>Hi! I Am Jahidul Islam Noman</h1>
+</body>
+</html>
