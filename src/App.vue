@@ -1,13 +1,16 @@
 <template>
   <login></login>
-  <div class="toasts">
+
+  <!-- <div> -->
+  <TransitionGroup name="side_left" tag="div" class="toasts">
     <the-toast
       v-for="(toast, i) in toasts"
       :key="i"
       :toastType="toast.Type"
       :message="toast.message"
     ></the-toast>
-  </div>
+  </TransitionGroup>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -46,4 +49,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.side_left-enter-active,
+.side_left-leave-active {
+  transition: all 0.5s ease;
+}
+.side_left-enter-from,
+.side_left-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

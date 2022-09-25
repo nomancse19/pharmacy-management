@@ -2,9 +2,6 @@
   <div>
     <div class="login-page">
       <div class="login-card">
-        <div class="box" :class="{ 'box--right': moveToRight }"></div>
-        <button @click="moveToRight = false">Move Left</button>
-        <button @click="moveToRight = true" class="ml-4">Move right</button>
         <div class="text-center">
           <img src="img/lock.png" class="login-card__icon" alt="" />
           <h2>User Login</h2>
@@ -109,25 +106,5 @@ export default {
 }
 .login-card__icon {
   max-width: 77px;
-}
-input {
-  padding: 7px 5px;
-}
-button {
-  padding: 7px 5px;
-  background-color: #290c0b;
-  color: #fff;
-  cursor: pointer;
-}
-
-.box {
-  width: 50px;
-  background-color: yellow;
-  height: 50px;
-  margin-bottom: 22px;
-  transition: all 2s;
-}
-.box--right {
-  margin-left: 220px;
 }
 </style>
